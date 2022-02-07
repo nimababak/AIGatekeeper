@@ -13,7 +13,7 @@ COPY ["src/AIGuard.MqttRepository/AIGuard.MqttRepository.csproj", "AIGuard.MqttR
 COPY ["src/AIGuard.DeepStack/AIGuard.DeepStack.csproj", "AIGuard.DeepStack/"]
        
 RUN dotnet restore "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj"
-COPY . .
+COPY . ./
 WORKDIR "/src/AIGuard.Orchestrator"
 RUN dotnet build "AIGuard.Orchestrator.csproj" -c Release -o /app/build
 
