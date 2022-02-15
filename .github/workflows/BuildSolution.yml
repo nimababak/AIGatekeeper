@@ -39,5 +39,5 @@ jobs:
 
     - name: Test with the dotnet CLI
       run: dotnet test --no-restore --verbosity normal
-#     working-directory: ./RestMongo      
-      working-directory: src/AIGuard.UnitTests
+      working-directory: ./RestMongo      
+
