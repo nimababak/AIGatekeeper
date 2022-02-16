@@ -2,8 +2,8 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nimababak_AIGatekeeper&metric=alert_status)](https://sonarcloud.io/dashboard?id=nimababak_AIGatekeeper)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=nimababak_AIGatekeeper&metric=bugs)](https://sonarcloud.io/dashboard?id=nimababak_AIGatekeeper) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=nimababak_AIGatekeeper&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=nimababak_AIGatekeeper)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=nimababak_AIGatekeeper&metric=code_smells)](https://sonarcloud.io/dashboard?id=nimababak_AIGatekeeper)
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=nimababak_AIGatekeeper)
 [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/5kTurQfz)
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=nimababak_AIGatekeeper)
 
 # AIGateKeeper
 
