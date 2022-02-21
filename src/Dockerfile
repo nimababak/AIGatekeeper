@@ -17,7 +17,7 @@ RUN dotnet restore "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj"
 COPY . .
 
 WORKDIR "/AIGuard.Orchestrator"
-RUN dotnet build "src/AIGuard.Orchestrator.csproj" -c Release -o /app/build
+RUN dotnet build "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "AIGuard.Orchestrator.csproj" -c Release -o /app/publish
