@@ -21,6 +21,5 @@
     <ProjectReference Include="..\AIGuard.DeepStack\AIGuard.DeepStack.csproj" />
     <ProjectReference Include="..\AIGuard.IRepository\AIGuard.IRepository.csproj" />
     <ProjectReference Include="..\AIGuard.MqttRepository\AIGuard.MqttRepository.csproj" />
-    <ProjectReference Include="..\AIGuard.Orchestrator\AIGuard.Orchestrator.csproj" />
   </ItemGroup>
 </Project>
