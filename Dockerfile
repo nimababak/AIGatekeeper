@@ -6,7 +6,6 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 
-COPY ["src/AIGatekeeper.sln", "AIGatekeeper/"]
 COPY ["src/AIGuard.Orchestrator/AIGuard.Orchestrator.csproj", "AIGuard.Orchestrator/"]
 COPY ["src/AIGuard.IRepository/AIGuard.IRepository.csproj", "AIGuard.IRepository/"]
 COPY ["src/AIGuard.Broker/AIGuard.Broker.csproj", "AIGuard.Broker/"]
@@ -17,7 +16,8 @@ RUN dotnet restore "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj"
 
 COPY . .
 WORKDIR "/src/AIGuard.Orchestrator"
-RUN dotnet build "AIGuard.Orchestrator.csproj" -c Release -o /app/build
+#RUN dotnet build "AIGuard.Orchestrator.csproj" -c Release -o /app/build
+RUN dotnet build -c Release --no-restore
 
 FROM build AS publish
 RUN dotnet publish "AIGuard.Orchestrator.csproj" -c Release -o /app/publish
