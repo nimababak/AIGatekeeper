@@ -1,15 +1,26 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:5.0 as base
 WORKDIR /app
 
-COPY *.csproj ./
-RUN dotnet restore "AIGuard.Orchestrator.csproj"
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
+WORKDIR /src
+
+
+COPY ["src/AIGuard.Orchestrator/AIGuard.Orchestrator.csproj", "./AIGuard.Orchestrator/"]
+COPY ["src/AIGuard.IRepository/AIGuard.IRepository.csproj", "./AIGuard.IRepository/"]
+COPY ["src/AIGuard.Broker/AIGuard.Broker.csproj", "./AIGuard.Broker/"]
+COPY ["src/AIGuard.Interface/AIGuard.Interface.csproj", "./AIGuard.Interface/"]
+COPY ["src/AIGuard.MqttRepository/AIGuard.MqttRepository.csproj", "./AIGuard.MqttRepository/"]
+COPY ["src/AIGuard.DeepStack/AIGuard.DeepStack.csproj", "./AIGuard.DeepStack/"]
+
+RUN dotnet restore "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj"
 
 COPY . ./
-RUN dotnet publish -c Release -o out
+WORKDIR "/src/AIGuard.Orchestrator"
+RUN dotnet build "AIGuard.Orchestrator.csproj" -c Release -o /app/build-env
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0
+FROM build-env AS publish
 WORKDIR /app
-COPY --from=build-env /app/out .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "AIGuard.Orchestrator.dll"]
