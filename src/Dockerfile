@@ -12,7 +12,7 @@ COPY ["src/AIGuard.Broker/AIGuard.Broker.csproj", "AIGuard.Broker/"]
 COPY ["src/AIGuard.Interface/AIGuard.Interface.csproj", "AIGuard.Interface/"]
 COPY ["src/AIGuard.MqttRepository/AIGuard.MqttRepository.csproj", "AIGuard.MqttRepository/"]
 COPY ["src/AIGuard.DeepStack/AIGuard.DeepStack.csproj", "AIGuard.DeepStack/"]
-RUN dotnet restore "src/AIGuard.Orchestrator/AIGuard.Orchestrator.csproj"
+RUN dotnet restore "AIGuard.Orchestrator.csproj"
 #RUN dotnet restore "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj"
 COPY . .
 #WORKDIR "/AIGuard.Orchestrator"
