@@ -18,7 +18,7 @@ COPY . .
 #WORKDIR "/AIGuard.Orchestrator"
 #RUN dotnet build "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj" -c Release -o /app/build
 WORKDIR "/src/."
-RUN dotnet build "src/AIGuard.Orchestrator.csproj" -c Release -o /app/build
+RUN dotnet build "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj" -c Release -o /app/build
 
 FROM build AS publish
 #RUN dotnet publish "AIGuard.Orchestrator.csproj" -c Release -o /app/publish
