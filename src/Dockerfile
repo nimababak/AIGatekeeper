@@ -15,11 +15,10 @@ COPY ["src/AIGuard.DeepStack/AIGuard.DeepStack.csproj", "AIGuard.DeepStack/"]
 RUN dotnet restore "AIGuard.Orchestrator/AIGuard.Orchestrator.csproj"
 
 COPY . .
-WORKDIR "/AIGuard.Orchestrator"
-RUN dotnet build "src/AIGuard.Orchestrator/AIGuard.Orchestrator.csproj" -c Release -o /app/build
+WORKDIR "/src/AIGuard.Orchestrator"
+RUN dotnet build "AIGuard.Orchestrator.csproj" -c Release -o /app/build
 
 FROM build AS publish
-#RUN dotnet publish "AIGuard.Orchestrator.csproj" -c Release -o /app/publish
 RUN dotnet publish "AIGuard.Orchestrator.csproj" -c Release -o /app/publish
 
 FROM base AS final
