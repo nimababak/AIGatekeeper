@@ -25,3 +25,10 @@ jobs:
         run : |
           docker build ./src -t ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
           docker push ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+
+      - name: Docker Image Test
+        uses: hands-lab/dockle-action@v1
+        with:
+          image: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+          exit-code: '1'
+          exit-level: WARN
