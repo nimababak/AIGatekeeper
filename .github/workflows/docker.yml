@@ -27,7 +27,8 @@ jobs:
           context: ./
           file: ./src/Dockerfile
           push: true
-          build-args: ${{ secrets.DOCKER_USERNAME }}
-          tags: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+          repository: ${{ secrets.DOCKER_USERNAME }}
+          tags: latest, ${{ github.run_number }}
+ #         tags: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
           
           
