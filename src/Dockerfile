@@ -2,8 +2,6 @@
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS base
 WORKDIR /app
-COPY . .
-RUN dotnet test
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
