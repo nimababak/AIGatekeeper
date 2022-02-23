@@ -23,10 +23,9 @@ jobs:
         
       - name: Build and push to Docker Hub            
         run : |
-          push: true
-          docker build ./src #-t ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
-          repository: ${{ secrets.DOCKER_USERNAME }}
-          tags: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+          docker build ./src -t ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+          docker push ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+
           
 #        uses: docker/build-push-action@v2
 #        with:
