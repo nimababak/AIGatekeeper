@@ -18,11 +18,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           
-      - name: Kubernetes Set Context
-        uses: Azure/k8s-set-context@v2
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+#      - name: Kubernetes Set Context
+#        uses: Azure/k8s-set-context@v2
+#        with:
+#          method: kubeconfig
+#          kubeconfig: ${{ secrets.KUBE_CONFIG }}
      
       - name: build and push the docker image            
         run : |
