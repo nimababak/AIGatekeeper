@@ -27,7 +27,9 @@ jobs:
       - name: scan the image container
         uses: Azure/container-scan@v0
         with:
-         image-name: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper          
+         image-name: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper   
+         username: ${{ secrets.DOCKER_USERNAME }}
+         password: ${{ secrets.DOCKER_PASSWORD }}
     
       - name: push to Docker Hub   
         run : docker push ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
