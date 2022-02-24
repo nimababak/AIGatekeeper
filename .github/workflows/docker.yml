@@ -1,5 +1,4 @@
-name: docker_build_test_push
-
+name: docker
 on:
   push: 
     branches: [main]
