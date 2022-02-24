@@ -1,0 +1,34 @@
+name: docker_build_test-push
+
+on:
+  push: 
+    branches: [main]
+  workflow_dispatch:       
+
+jobs:
+  docker: # job name
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2  
+        
+      - name: set up docker buildx
+        uses: docker/setup-buildx-action@v1  
+      
+      - name: build the image        
+      - run : docker build ./src -t ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+          
+      - name: scan the image container
+        uses: Azure/container-scan@v0
+        with:
+         image-name: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+        
+      - name: login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          login-server: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          
+      - name: push the image
+        run : docker push ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
