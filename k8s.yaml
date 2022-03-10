@@ -11,11 +11,10 @@ spec:
     metadata:
       labels:
         app: aigatekeeper
-        version: IMAGE_LABEL
     spec:
       containers:
       - name: aigatekeeper
-        image: nimababak/aigatekeeper:IMAGE_LABEL
+        image: nimababak/aigatekeeper
         ports:
         - containerPort: 80
 ---
