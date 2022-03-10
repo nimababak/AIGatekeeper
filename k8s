@@ -28,8 +28,10 @@ spec:
   selector:
     app: aigatekeeper
   ports:
-  - port: 80
+  - protocol: TCP
+    port: 80
     targetPort: 80
+    nodePort: 31000
 ---
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
