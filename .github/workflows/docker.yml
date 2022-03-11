@@ -28,7 +28,7 @@ jobs:
         run : |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/aigatekeeper ./src 
           docker push ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
-          kubectl apply -f k8s.yaml
+#          kubectl apply -f k8s.yaml
           
 #      - name: PowerShell script
 #        uses: Amadevus/pwsh-script@v2.0.1
