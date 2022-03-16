@@ -25,13 +25,5 @@ RUN dotnet publish "AIGuard.Orchestrator.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 
-#ARG BUILD_CONFIGURATION=Debug
-#ENV ASPNETCORE_ENVIRONMENT=Development
-#ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
-#ENV ASPNETCORE_URLS=http://+:80  
-ENV ASPNETCORE_ENVIRONMENT Production
-ENV ASPNETCORE_URLS http://+:80 
-EXPOSE 80
-
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "AIGuard.Orchestrator.dll"]
