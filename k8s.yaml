@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: aigatekeeper-container
-        image: nimababak/aigatekeeper
+        image: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper-container
         ports:
         - containerPort: 80
 ---
