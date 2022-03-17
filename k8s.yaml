@@ -16,7 +16,7 @@ spec:
       - name: aigatekeeper-container
         image: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper-container
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -28,7 +28,7 @@ spec:
     app: aigatekeeper
   ports:
   - protocol: TCP
-    port: 80
+    port: 8080
     targetPort: 80
     nodePort: 30000
 ---
