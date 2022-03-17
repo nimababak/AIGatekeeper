@@ -6,17 +6,17 @@ spec:
   selector:
     matchLabels:
       app: aigatekeeper
-  replicas: 4 # tells deployment to run X pods matching the template
+  replicas: 3 # tells deployment to run X pods matching the template
   template:
     metadata:
       labels:
         app: aigatekeeper
     spec:
       containers:
-      - name: aigatekeeper-container
-        image: ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+      - name: aigatekeeper
+        image: nimababak/aigatekeeper
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -29,8 +29,8 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8080
-    nodePort: 30000
+    targetPort: 80
+    nodePort: 31000
 ---
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
