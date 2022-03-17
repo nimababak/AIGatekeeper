@@ -28,6 +28,8 @@ jobs:
         run : |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/aigatekeeper ./src 
           docker push ${{ secrets.DOCKER_USERNAME }}/aigatekeeper
+          docker run --rm --name aigatekeeper-container -d -v ./Volume-temp:/Volume-temp aigatekeeper
+          
 #          kubectl apply -f k8s.yaml
           
 #      - name: PowerShell script
